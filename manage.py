@@ -1,6 +1,7 @@
 from app import create_app, db
 from app.models import User
-
+from flask_script import Manager, Server
+from app import db
 
 @manager.shell
 def make_shell_context():
@@ -8,4 +9,4 @@ def make_shell_context():
 
 
 if __name__ == '__main__':
-    manager.run
+    manager.run()

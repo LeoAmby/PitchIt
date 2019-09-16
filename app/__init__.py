@@ -1,12 +1,13 @@
 from flask import Flask
 # from flask_bootstrap import Bootstrap
 # from config import config
-from flask_sqlalchemy import flask_sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
 
 
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
+manager = Manager(app)
 
 def create_app():
     app.config.from_object(Config)
