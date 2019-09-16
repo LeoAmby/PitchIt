@@ -5,16 +5,18 @@
 {% endblock %}
 
 
-{% block body %}
+{% block nav %}
 <div class="header">
     <nav class="navbar">
         <div class="container">
 
             <div id="navbarMenu" class="navbar-menu">
                 <div class="navbar-end">
-                    <a href="{{ url_for('main.index') }}" class="navba-item">HOME</a>
-                    <a href="{{ url_for('main.index') }}" class="navba-item">PROFILE</a>
-                    
+                    <a href="{{ url_for('main.index') }}" class="navbar-item">HOME</a>
+                    <a href="{{ url_for('main.index') }}" class="navbar-item">PROFILE</a>
+                    <a href ="{{ url_for('main.signup') }}" class="navbar-item">SIGN-UP</a>
+                    <a href ="{{ url_for('main.login') }}" class= "navebar-item">LOGIN</a>
+                    <a href ="{{url_for('main.logout') }}" class = "navbar-item">LOGOUT</a>
 
 
             </div>
@@ -23,3 +25,7 @@
 </div>
 
 {% endblock %}
+
+{% block body %}
+
+{% endblock%}

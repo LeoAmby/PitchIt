@@ -17,14 +17,12 @@ def create_app():
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = '0da924e0a1'
-    app.config[SQLALCHEMY_DATABASE_URI] = 'sqlite:///db.sqlite3'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres+psycopg2://moringa:psdql@localhost:5432/query'
 
     db.init_app(app)
     
 
 
-    from auth import auth as auth_blueprint
-    app.register_blurprint(auth_blueprint)
 
 
     from .main import main as main_blueprint
