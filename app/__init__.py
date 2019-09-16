@@ -1,7 +1,7 @@
 from flask import Flask
 # from flask_bootstrap import Bootstrap
 # from config import config
-# from flask_sqlalchemy import flask_sqlalchemy
+from flask_sqlalchemy import flask_sqlalchemy
 
 
 
