@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class="header">
+    <nav class="navbar">
+        <div class="container">
+
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <a href="{{ url_for('main.index') }}" class="navba-item">HOME</a>
+                    <a href="{{ url_for('main.index') }}" class="navba-item">PROFILE</a>
+                    
+
+
+            </div>
+        </div>
+    </nav>
+</div>
+
+{% endblock %}
