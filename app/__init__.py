@@ -15,8 +15,8 @@ def create_app():
 
     db.init_app(app)
 
-    # from .auth import auth as auth_blueprint
-    # app.register_blurprint(auth_blueprint)
+    from auth import auth as auth_blueprint
+    app.register_blurprint(auth_blueprint)
 
 
     from .main import main as main_blueprint
