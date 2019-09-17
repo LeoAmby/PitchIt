@@ -5,7 +5,9 @@ from app import db
 
 
 app = create_app()
-manager = Manager(app)
+
+manager = Manager(app)#
+manager.add_command('server', Server)
 
 @manager.shell
 def make_shell_context():

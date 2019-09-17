@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from . import main
-from .models import User
+from app.models import User
+from werkzeug.security import generate_password_hash
+from .. import db
 
 main = Blueprint('main', __name__)
 
@@ -33,12 +35,19 @@ def signup_post():
     user = User.query.filter_by(email=email).first()
 
     if user:
-        flash('Email address already exists')
-        return redirect(url_for('main.login'))
-        
+        flash('Email address already exists!')
+        return redirect(url_for('main.signup'))
+
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='leo357'))
+    db.session.add(new_user)
+    db.session.commit()
+
+    return redirect(url_for('main.login'))
 
 @main.route('/logout')
 def logout():
     return redirect(url_for('main.index'))
 
 
+if __name__ == '__main__':
+    main.run(debug=True)
