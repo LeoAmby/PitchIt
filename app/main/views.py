@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for, request, flash
 from . import main
+from .models import User
 
 main = Blueprint('main', __name__)
 
@@ -23,8 +24,18 @@ def login():
 def signup():
     return render_template('signup.html')
 
-# @uth.route('/signup', methods=['POST'])
-# def signup_post():
+@main.route('/signup', methods=['POST'])
+def signup_post():
+    email = request.form.get('email')
+    name = request.form.get('name')
+    password = request.form.get('password')
+
+    user = User.query.filter_by(email=email).first()
+
+    if user:
+        flash('Email address already exists')
+        return redirect(url_for('main.login'))
+        
 
 @main.route('/logout')
 def logout():
